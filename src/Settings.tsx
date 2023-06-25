@@ -17,14 +17,14 @@ export const Settings = (props: SettingsPropsType) => {
     const onChangeMaxValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
         let newMaxValue = Number(e.currentTarget.value);
         props.setMaxValue(newMaxValue)
-        props.setMessage("Press set")
+        props.setMessage("Enter values and press 'set'")
         props.errorShowMessage(newMaxValue, props.startValue)
     }
 
     const onChangeStartValueHandler = (e: ChangeEvent<HTMLInputElement>) => {
         let newStartValue = Number(e.currentTarget.value)
         props.setStartValue(newStartValue)
-        props.setMessage("Press set")
+        props.setMessage("Enter values and press 'set'")
         props.errorShowMessage(props.maxValue, newStartValue)
     }
 
@@ -37,7 +37,8 @@ export const Settings = (props: SettingsPropsType) => {
 
     return (
         <div className="div">
-            <div>
+            <div className="Content">
+                <div className="Input">
                 <div>
                     <label htmlFor="max-value">max value:</label>
                     <input id="max-value"
@@ -54,6 +55,7 @@ export const Settings = (props: SettingsPropsType) => {
                            onChange={onChangeStartValueHandler}
                     />
 
+                </div>
                 </div>
                 <Button
                     clickHandler={saveSettings}

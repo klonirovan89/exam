@@ -15,7 +15,8 @@ export const Counter = (props: CounterPropsType) => {
 
     return (
         <div className="div">
-            <p className={props.message == "ERROR" || props.value >= props.maxValue ? "Red" : "Black"}>{props.message || props.value}</p>
+            <div  className="Content">
+            <div className={props.message == "Incorrect value!" || props.value >= props.maxValue ? "Red" : "Black"}>{props.message || props.value}</div>
             <div>
                 <Button
                     clickHandler={props.addCounter}
@@ -27,6 +28,7 @@ export const Counter = (props: CounterPropsType) => {
                     label={'reset'}
                     disabled={props.message != "" || props.value <= props.startValue}
                 />
+            </div>
             </div>
         </div>
     );

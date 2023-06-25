@@ -19,7 +19,7 @@ function App() {
 
     const errorShowMessage = (maxValue: number, startValue: number) => {
         if (maxValue <= startValue || startValue < 0) {
-            setMessage("ERROR")
+            setMessage("Incorrect value!")
         }
     }
 
