@@ -1,22 +1,32 @@
 import React from 'react';
-import {PropsType} from "./App";
+import {Button} from "./Button";
 
 
-export const Counter = (props: PropsType) => {
+export type CounterPropsType = {
+    value: number,
+    deleteCounter: () => void,
+    addCounter: () => void,
+    maxValue: number,
+    startValue: number
+    message: string
+}
 
+export const Counter = (props: CounterPropsType) => {
 
     return (
-        <div>
-            <p className={props.title == 5 ? "Red" : "Black"}>{props.title}</p>
+        <div className="div">
+            <p className={props.message == "ERROR" || props.value >= props.maxValue ? "Red" : "Black"}>{props.message || props.value}</p>
             <div>
-                <button className="Button" onClick={props.addCounter}
-                        disabled={props.title == 5 ? true : false}>
-                    click
-                </button>
-                <button className="Button" onClick={props.deleteCounter}
-                        disabled={props.title == 0 ? true : false}>
-                    reset
-                </button>
+                <Button
+                    clickHandler={props.addCounter}
+                    label={'click'}
+                    disabled={props.message != "" || props.value >= props.maxValue}
+                />
+                <Button
+                    clickHandler={props.deleteCounter}
+                    label={'reset'}
+                    disabled={props.message != "" || props.value <= props.startValue}
+                />
             </div>
         </div>
     );
