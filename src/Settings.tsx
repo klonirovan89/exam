@@ -39,23 +39,27 @@ export const Settings = (props: SettingsPropsType) => {
         <div className="div">
             <div className="Content">
                 <div className="Input">
-                <div>
-                    <label htmlFor="max-value">max value:</label>
-                    <input id="max-value"
-                           type="number"
-                           value={props.maxValue}
-                           onChange={onChangeMaxValueHandler}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="start-value">start value:</label>
-                    <input id="start-value"
-                           type="number"
-                           value={props.startValue}
-                           onChange={onChangeStartValueHandler}
-                    />
-
-                </div>
+                    <div className="InputContent">
+                        <label htmlFor="max-value">max value:</label>
+                        <div className="InputBorder">
+                            <input className={props.startValue >= props.maxValue || props.maxValue < 0? "InputErrorValue" : "InputValue"}
+                                   id="max-value"
+                                   type="number"
+                                   value={props.maxValue}
+                                   onChange={onChangeMaxValueHandler}
+                            />
+                        </div>
+                    </div>
+                    <div className="InputContent">
+                        <label htmlFor="start-value">start value:</label>
+                        <input
+                            className={props.startValue < 0 || props.startValue >= props.maxValue ? "InputErrorValue" : "InputValue"}
+                            id="start-value"
+                            type="number"
+                            value={props.startValue}
+                            onChange={onChangeStartValueHandler}
+                        />
+                    </div>
                 </div>
                 <Button
                     clickHandler={saveSettings}

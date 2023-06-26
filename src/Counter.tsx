@@ -16,7 +16,7 @@ export const Counter = (props: CounterPropsType) => {
     return (
         <div className="div">
             <div  className="Content">
-            <div className={props.message == "Incorrect value!" || props.value >= props.maxValue ? "Red" : "Black"}>{props.message || props.value}</div>
+            <div className={props.message == "Incorrect value!" || (props.message == "" && props.value >= props.maxValue) ? "Red" : "Black"}>{props.message || props.value}</div>
             <div>
                 <Button
                     clickHandler={props.addCounter}
