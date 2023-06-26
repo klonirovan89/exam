@@ -84,4 +84,25 @@
     border-color: red;
 }
 
+.InputValue{
+    width: 100px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.Button {
+    font-size: 20px;
+    font-family: DancingScript;
+    border: 2px solid white;
+    padding: .5em;
+    background-color: #455561;
+    margin: 0 2px;
+    border-radius: 5px;
+}
+
+@font-face {
+    font-family: 'DancingScript';
+    src: local('DancingScript'),
+    url('./fonts/Caprasimo-Regular.ttf') format('truetype');
+}
 
